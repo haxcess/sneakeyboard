@@ -12,7 +12,7 @@ const char line3[] PROGMEM = "           make america great again!   ";
 const char line4[] PROGMEM = "              ping tracking.amazon.com ";
 const char line5[] PROGMEM = " Laws are like stop signs: suggestions ";
 const char line6[] PROGMEM = "                  I like rusty spoons  ";
-const char line7[] PROGMEM = " see haxcess on github for troll source";
+const char line7[] PROGMEM = "https://github.com/haxcess/sneakeyboard";
 
 
 #define LINES 8
