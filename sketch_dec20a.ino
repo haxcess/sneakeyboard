@@ -37,8 +37,8 @@ void waitFor( int d ) {
 
 void longWaitFor( int d = 1) {
   // waits for d minutes, blinking led
-  for (int i = 0; i < d; i++) {
-    for (int j = 0; j < 60; j++) {
+  for (int i = 0; i < d; i++) { 
+    for (int j = 0; j < 60; j++) {  
       waitFor(1000);  // Wait one second
       digitalWrite(1, !digitalRead(1)); // blink the LED
     }
@@ -46,6 +46,8 @@ void longWaitFor( int d = 1) {
 }
 
 void sendModKey( int key, int mod ) {
+  // could use this to send modified keys, like CTRL-V
+  // sendModKey (KEY_V, MOD_CONTROL_LEFT )
   DigiKeyboard.sendKeyStroke( key, mod );
   DigiKeyboard.update();
 }
@@ -56,10 +58,12 @@ void sendKey( int key ) {
 }
 
 void printText( char * txt ) {
+  // simple loop through the buffer and send keys out
   int l = strlen(txt);
   for (int i = 0; i < l; i++) {
     uint8_t r = random8();
-    if (r > 120) txt[i] |= 32;
+    // this toggles case of the character based on random number
+    if (r > 120) txt[i] ^= 32;  
     DigiKeyboard.print( txt[i] );
     DigiKeyboard.update();
   }
@@ -76,7 +80,7 @@ void loop() {
   uint16_t i = random8(MINWAIT, MAXWAIT) ;
   longWaitFor(i); // Sleep a while
 
-  i = i % LINES ;
+  i = i % LINES ; // recycle that random number for the string choice
 
   if (1 == i)      printText( GF (line1) );
   else if (2 == i) printText( GF (line2) );
