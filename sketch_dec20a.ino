@@ -7,22 +7,22 @@
 //long string in flash memory
 // ruler                      ----5----10---5----20---5----30---5----40---5----50--------60---5
 const char line1[] PROGMEM = "   Jeffrey Epstein didn't kill himself ";
-const char line2[] PROGMEM = "     relaod in 9999999; copy run stort ";
-const char line3[] PROGMEM = "           Santa prefers rich families ";
-const char line4[] PROGMEM = "       wherever you go, there you are! ";
+const char line2[] PROGMEM = "    !  write erose; relaod in 9999999  ";
+const char line3[] PROGMEM = "           make america great again!   ";
+const char line4[] PROGMEM = "              ping tracking.amazon.com ";
 const char line5[] PROGMEM = " Laws are like stop signs: suggestions ";
-const char line6[] PROGMEM = "     Errrorr RAM subsystem nearly full ";
-const char line7[] PROGMEM = "   jEfFrEy ePsTaIn DiDnaT kIlL HiMsElF ";
+const char line6[] PROGMEM = "                  I like rusty spoons  ";
+const char line7[] PROGMEM = " see haxcess on github for troll source";
 
 
-#define LINES 6
+#define LINES 8
 #define KEY_CAPS 0x39
 
 char buffer[42]; //greater than longest string + 1 for null
-#define GetPsz( x ) (strcpy_P(buffer, (char*)x))
+#define GF( x ) (strcpy_P(buffer, (char*)x))  // GetFlash copy string from progmem(flash) to buffer[]
 
-#define MINUTES(_Mins) (_Mins * 60000)
-#define MAXWAIT 60
+#define MINUTES(_Mins) (_Mins * 60000)    // Could use this to get milliseconds out of minutes
+#define MAXWAIT 60  // Minutes to wait
 #define MINWAIT 25
 
 void digiReset() {
@@ -31,6 +31,7 @@ void digiReset() {
 }
 
 void waitFor( int d ) {
+  // wait for d milliseconds
   DigiKeyboard.delay( d );
 }
 
@@ -38,8 +39,8 @@ void longWaitFor( int d = 1) {
   // waits for d minutes, blinking led
   for (int i = 0; i < d; i++) {
     for (int j = 0; j < 60; j++) {
-      waitFor(1000);
-      digitalWrite(1, !digitalRead(1));
+      waitFor(1000);  // Wait one second
+      digitalWrite(1, !digitalRead(1)); // blink the LED
     }
   }
 }
@@ -77,13 +78,12 @@ void loop() {
 
   i = i % LINES ;
 
-  if (1 == i)      printText( GetPsz (line1) );
-  else if (2 == i) printText( GetPsz (line2) );
-  else if (3 == i) printText( GetPsz (line3) );
-  else if (4 == i) printText( GetPsz (line4) );
-  else if (5 == i) printText( GetPsz (line5) );
-  else if (6 == i) printText( GetPsz (line6) );
-  else if (7 == i) printText( GetPsz (line7) );
+  if (1 == i)      printText( GF (line1) );
+  else if (2 == i) printText( GF (line2) );
+  else if (3 == i) printText( GF (line3) );
+  else if (4 == i) printText( GF (line4) );
+  else if (5 == i) printText( GF (line5) );
+  else if (6 == i) printText( GF (line6) );
+  else if (7 == i) printText( GF (line7) );
   else  sendKey(KEY_CAPS);  //capslock
 }
-
