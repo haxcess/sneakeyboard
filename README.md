@@ -1,4 +1,5 @@
 # SneaKeyBoard
+
 A toy. It pretends to be a keyboard and types out phrases between long delays.
 
 Requires a digispark, arduino studio 1.6.5, digistump and FastLED libraries.

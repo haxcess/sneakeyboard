@@ -47,7 +47,7 @@ void longWaitFor( int d = 1) {
 
 void sendModKey( int key, int mod ) {
   // could use this to send modified keys, like CTRL-V
-  // sendModKey (KEY_V, MOD_CONTROL_LEFT )
+  // sendModKey( KEY_V, MOD_CONTROL_LEFT )
   DigiKeyboard.sendKeyStroke( key, mod );
   DigiKeyboard.update();
 }
