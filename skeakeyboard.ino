@@ -6,16 +6,16 @@
 
 //long string in flash memory
 // ruler                      ----5----10---5----20---5----30---5----40---5----50--------60---5
-const char line1[] PROGMEM = "   Jeffrey Epstein didn't kill himself ";
-const char line2[] PROGMEM = "    !  write erose; relaod in 9999999  ";
-const char line3[] PROGMEM = "           make america great again!   ";
-const char line4[] PROGMEM = "              ping tracking.amazon.com ";
-const char line5[] PROGMEM = " Laws are like stop signs: suggestions ";
-const char line6[] PROGMEM = "                  I like rusty spoons  ";
-const char line7[] PROGMEM = "https://github.com/haxcess/sneakeyboard";
+const char line1[] PROGMEM = "   EpStEiN dIdN't kkill HimsElf!       "; // For the conspiracy nuts
+const char line2[] PROGMEM = "    !   write erase; relaod in 999999  "; // For the net-eng nuts
+const char line3[] PROGMEM = "  make america cheese-graters again!!!1"; // For the maga nuts
+const char line4[] PROGMEM = "              ping tracking.amazon.com "; // For the tinfoil nuts
+const char line5[] PROGMEM = " Laws are like stop signs: suggestions "; // For the backseat nuts
+const char line6[] PROGMEM = "                  I like rusty spoons  "; // For the nostalgia nuts
+const char line7[] PROGMEM = "https://github.com/haxcess/sneakeyboard"; // For the haxcess nuts
 
 
-#define LINES 8
+#define LINES 8 
 #define KEY_CAPS 0x39
 
 char buffer[42]; //greater than longest string + 1 for null
